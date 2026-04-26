@@ -1,0 +1,122 @@
+name: Bug Report
+description: Something in the portal isn't working the way it should.
+title: "[Bug]: "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to file a bug report. The more detail you give, the faster we can fix it.
+
+        **Don't** include passwords, auth tokens, or other people's private email addresses in this report.
+  - type: input
+    id: portal-area
+    attributes:
+      label: Where in the portal did the bug happen?
+      description: Curation Desk, Identity Matrix, Invitations, Audit Trail, profile page, submission upload, etc.
+      placeholder: "e.g. Admin Panel → Invitations tab"
+    validations:
+      required: true
+  - type: input
+    id: page-url
+    attributes:
+      label: Page URL
+      description: The full URL in your address bar when the bug happened. Trim any sensitive query parameters.
+      placeholder: "https://subs.skate.fm/admin"
+    validations:
+      required: false
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Describe the bug in your own words.
+      placeholder: "I clicked 'Send Invite' and got a red error banner that said..."
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect to happen?
+      placeholder: "The invite should have been sent and shown up in the queue."
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: Numbered list, as exact as you can make it.
+      placeholder: |
+        1. Go to /admin
+        2. Click the Invitations tab
+        3. Fill in name and email
+        4. Click Send Invite
+        5. Observe error
+    validations:
+      required: true
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: Screenshot
+      description: Drag-and-drop a screenshot here. Especially helpful for visual bugs and error messages.
+    validations:
+      required: false
+  - type: dropdown
+    id: device
+    attributes:
+      label: Device
+      options:
+        - Desktop
+        - Laptop
+        - Tablet
+        - Phone
+        - Other
+    validations:
+      required: true
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Browser
+      options:
+        - Chrome
+        - Safari
+        - Firefox
+        - Edge
+        - Brave
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      placeholder: "macOS 14.5 / Windows 11 / iOS 17 / Android 14 / Ubuntu 24.04"
+    validations:
+      required: false
+  - type: textarea
+    id: console-errors
+    attributes:
+      label: Browser console errors (optional)
+      description: If you're comfortable, open DevTools (F12) → Console tab and paste any red error messages.
+      render: text
+    validations:
+      required: false
+  - type: dropdown
+    id: severity
+    attributes:
+      label: How badly does this block you?
+      options:
+        - "Cosmetic — looks wrong but I can still work"
+        - "Annoying — slows me down but I have a workaround"
+        - "Blocking — I can't complete what I'm trying to do"
+        - "Critical — production is broken or data is at risk"
+    validations:
+      required: true
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmations
+      options:
+        - label: I have searched existing issues and this isn't a duplicate.
+          required: true
+        - label: I have not included passwords, tokens, or other people's private contact info in this report.
+          required: true
